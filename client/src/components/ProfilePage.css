@@ -1,0 +1,38 @@
+.skill-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-bar {
+  display: flex;
+  justify-content: space-between; /* Revert this change */
+  align-items: center;
+  height: 20px;
+  background-color: #ddd;
+  position: relative;
+  width: 80%;
+}
+
+.skill-bar-negative {
+  height: 100%;
+  background-color: #ff0000;
+  position: absolute;
+  right: 100%;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background-color: #008000;
+  position: absolute; /* Add this line to fix the green bar direction */
+  left: 0; /* Add this line to fix the green bar direction */
+}
+
+.skill-bar-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: right;
+  margin-right: 5px;
+  margin-left: 10px;
+}
