@@ -9,23 +9,38 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+
 //ROUTES//
-app.get("/api/quizprompts/random", async (req, res) => {
-    try {
-        const questionQuery = {
-            text: 'SELECT * FROM quizprompts ORDER BY RANDOM() LIMIT 1'
-        };
-        const questionResult = await pool.query(questionQuery);
-        if (questionResult.rows.length === 0) {
-            res.status(404).send('No questions available');
-        } else {
-            res.json(questionResult.rows[0]);
-        }
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
-    }
+app.post("/api/submit", async (req, res) => {
+  try {
+    const answers = req.body;
+    console.log("Received answers:", answers);
+
+    // TODO: Implement your logic to handle the answers. This could involve
+    // saving the answers to a database, checking the answers and updating the 
+    // user's score, etc.
+
+    res.status(200).send("Answers received successfully");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
 });
+
+app.get('/api/questions', async (req, res) => {
+  try {
+      const questionsQuery = {
+          text: 'SELECT * FROM questions',
+      };
+      const questionsResult = await pool.query(questionsQuery);
+      const questionData = questionsResult.rows;
+      res.json(questionData);
+  } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+  }
+});
+
 
 app.get("/api/weakestSkills", async (req, res) => {
     try {

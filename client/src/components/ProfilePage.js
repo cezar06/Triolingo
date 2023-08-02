@@ -5,66 +5,50 @@ function ProfilePage() {
   const [username, setUsername] = useState("");
   const [skillLevels, setSkillLevels] = useState({});
   const skillNames = [
-    "vocabulary",  // new: overall word knowledge
-    "grammar",     // new: overall grammar knowledge
-    "nouns",
-    "verbs",
-    "adjectives",
-    "adverbs",
+    "vocabulary",
+    "grammar",
+    "sentence_structure",
+    "tenses",
+    "articles",
     "pronouns",
-    "prepositions",
-    "conjunctions",
-    "sentence_structure",  // new: overall sentence structure understanding
-    "simple_sentences",
-    "compound_sentences",
-    "complex_sentences",
-    "tenses", // new: overall knowledge of tenses
-    "present_tense",
-    "past_tense",
-    "future_tense",
-    "articles", // new: general knowledge of articles
-    "definite_articles",
-    "indefinite_articles",
-    "pronoun_types",  // new: general knowledge of pronoun types
-    "subject_pronouns",
-    "object_pronouns",
-    "possessive_adjectives",
-    "plural_nouns", // new: overall understanding of plural nouns
-    "regular_plural_nouns",
-    "irregular_plural_nouns",
-    "negation",  // new: overall understanding of negation
-    "negation_of_verbs",
-    "negation_of_nouns",
-    "listening_comprehension",  // new: understanding spoken language
-    "reading_comprehension",  // new: understanding written language
-    "writing",  // new: ability to write in the language
-    "speaking",  // new: ability to speak in the language
-    "pronunciation",  // new: accurate pronunciation of words
-    "idiomatic_expressions",  // new: understanding language-specific idioms
-    "cultural_context",  // new: understanding the culture(s) where the language is spoken
+    "plural_nouns",
+    "negation",
+    "listening_comprehension",
+    "reading_comprehension",
+    "writing",
+    "idiomatic_expressions",
 ];
 
 
-  async function fetchSkillLevels() {
-    const response = await fetch(`http://localhost:5000/api/skills?username=${username}`);
-    const data = await response.json();
-    const transformedData = Object.entries(data).reduce((acc, [key, value]) => {
-      const skillName = key.replace("_level", "");
-      acc[skillName] = value;
-      return acc;
-    }, {});
-    setSkillLevels(transformedData);
+
+
+async function fetchSkillLevels() {
+  const response = await fetch(`http://localhost:5000/api/skills?username=${username}`);
+  if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+      const data = await response.json();
+      const transformedData = Object.entries(data).reduce((acc, [key, value]) => {
+          const skillName = key.replace("_level", "");
+          acc[skillName] = value;
+          return acc;
+      }, {});
+      setSkillLevels(transformedData);
   }
+}
+
+
+useEffect(() => {
+  const storedUsername = localStorage.getItem("username");
+  if (storedUsername) {
+    setUsername(storedUsername);
+  }
+}, []);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setUsername(storedUsername);
+    if (username) {
+      fetchSkillLevels();
     }
-  }, []);
-
-  useEffect(() => {
-    fetchSkillLevels();
   }, [username]);
 
   return (
