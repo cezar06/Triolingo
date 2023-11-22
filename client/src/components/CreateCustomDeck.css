@@ -1,0 +1,7 @@
+
+.large-badge {
+    font-size: 1rem; /* Larger font size */
+    padding: .6em .8em; /* Larger padding */
+    margin: 0.2em; /* Ensure some space between badges */
+    cursor: pointer; /* Change cursor on hover */
+  }
