@@ -1,0 +1,247 @@
+.flashcard-container {
+  width: 592px;
+  height: 381px;
+  margin: 20px auto;
+  background: #1E1E2E; /* Dark background */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Shadow for depth */
+  color: #FFFFFF; /* Light text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.word-section h2 {
+  font-size: 48px; /* Large word at the top */
+  text-transform: lowercase; /* Lowercase styling */
+  color: #BB86FC; /* Purple text */
+  margin-bottom: 8px; /* Space below the word */
+}
+
+.translation-section h3 {
+  font-size: 24px; /* Smaller font for translation */
+  margin-bottom: 8px; /* Space below the translation */
+}
+
+.example-section .example-sentence {
+  font-size: 18px; /* Even smaller font for the example sentence */
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(187, 134, 252, 0.75), rgba(255, 255, 255, 0)); /* Gradient line */
+  margin: 10px 0; /* Space around the divider */
+  width: 100%; /* Full width */
+}
+
+.audio-section .play-button {
+  /* Styles for your play button */
+  background: #BB86FC; /* Purple background */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  color: #FFFFFF;
+  padding: 10px; /* Size of the button */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.no-flashcards-message {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* Styles specific to the front of the card */
+.card-front {
+  /* Existing styles */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  padding: 20px;
+  padding-bottom: 60px; /* Increase padding at the bottom to ensure space for the button */
+  height: 100%;
+}
+
+.word-section h2 {
+  font-size: 48px; /* Large word at the top */
+  text-transform: lowercase; /* Lowercase styling */
+  color: #BB86FC; /* Purple text */
+  text-align: center; /* Center the text horizontally */
+  width: 100%; /* Ensure the text container takes full width */
+  margin-bottom: 20px; /* Provide some space between the title and image */
+}
+
+.button-section {
+  position: absolute;
+  bottom: 20px; /* Ensure buttons are above the bottom edge of the card */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.btn {
+  background: transparent; /* Transparent background */
+  color: #FFFFFF; /* White text color for better visibility */
+  border: 1px solid #BB86FC; /* Purple border to maintain the style */
+  border-radius: 20px; /* Rounded borders */
+  padding: 10px 20px; /* Padding inside the buttons */
+  cursor: pointer;
+  font-size: 16px; /* Button text size */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: none; /* No shadow when not hovering */
+  margin: 0 10px; /* Margins to space out the buttons */
+}
+
+.btn:hover {
+  background: #BB86FC; /* Purple background on hover */
+  color: white; /* White text on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth and visibility on hover */
+}
+
+.image-button {
+  /* Additional styles for the 'Show Image' button, if needed */
+}
+
+.flip-button {
+  /* Additional styles for the 'Flip' button, if needed */
+}
+
+.image-container {
+  width: 100%; /* Full width of the card */
+  max-height: 150px; /* Decrease the maximum height to prevent overlap */
+  margin: 0 auto; /* Center the image container */
+  display: flex; /* Use flexbox to center the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Prevents the image from overflowing */
+  padding: 0 0 10px 0; /* Add some space at the bottom */
+}
+
+.card-image {
+  max-width: 100%; /* Make the image take the full width of the container */
+  max-height: 100%; /* Make the image take the full height of the container */
+  object-fit: cover; /* Cover the area, will crop the image if aspect ratio doesn't match */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px; /* Adjust this padding to control space from the edges */
+  align-items: flex-start; /* Aligns children (content) to the left */
+  text-align: left; /* Aligns text to the left */
+}
+
+.difficulty-buttons {
+  /* Styles to position your difficulty buttons at the bottom */
+  margin-top: auto; /* This pushes the buttons to the bottom */
+  width: 100%; /* Full width to align with the card's width */
+  display: flex; /* Using flexbox for horizontal layout */
+  justify-content: space-around; /* Evenly space buttons */
+  align-items: center; /* Vertically align buttons */
+}
+
+.difficulty-btn {
+  /* Button styles */
+  padding: 10px 20px; /* Padding inside the buttons */
+  margin: 5px; /* Margin around buttons */
+  border-radius: 20px; /* Rounded corners */
+  border: 1px solid #BB86FC; /* Purple border */
+  color: #FFFFFF; /* White text */
+  background: transparent; /* Transparent background */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.difficulty-btn:hover {
+  background: #BB86FC; /* Purple background on hover */
+  color: white; /* White text on hover */
+}
+
+.card-back .word-section h2 {
+  font-size: 36px; /* Smaller font size for the back */
+  margin-bottom: 0.5em; /* Smaller bottom margin */
+  /* Keep other styles unchanged */
+}
+
+
+.translate-text:hover {
+  background-color: rgba(187, 134, 252, 0.1); /* Highlight on hover */
+}
+
+.translate-text {
+  color: #BB86FC; /* Use the theme's purple color */
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 20px; /* Space from the sentence to the translate text */
+  padding: 5px;
+  font-size: 18px; /* Make it slightly larger if it's too small */
+  transition: background-color 0.3s ease;
+}
+
+.card-back .word-section h2 {
+  font-size: 36px; /* Adjust if necessary */
+  margin-bottom: 0.25em; /* Reduce the space below the word */
+  
+}
+
+.card-back .translation-section h3 {
+  font-size: 32px; /* Adjust if necessary */
+  margin-bottom: 0.25em; /* Reduce the space below the translation */
+}
+
+.card-back .example-section .example-sentence {
+  font-size: 16px; /* Adjust if necessary */
+  margin-bottom: 0.25em; /* Reduce the space below the example sentence */
+}
+
+.card-back .translate-text {
+  margin-bottom: 0.25em; /* Add some space below the translate link */
+}
+
+.card-back .audio-section {
+  margin-bottom: 0.25em; /* Add some space below the audio button */
+}
+
+.card-back .difficulty-buttons {
+  margin-top: auto; /* Pushes the buttons to the bottom */
+  padding-bottom: 10px; /* Add padding to ensure space from the bottom edge */
+}
+
+.audio-section .play-button {
+  background: none;
+  color: #BB86FC;
+  /* ... other styles ... */
+}
+
+.audio-section .play-button:hover {
+  /* Hover effect for the play button if you want to keep it */
+  background-color: rgba(187, 134, 252, 0.1);
+}
+.sentence-and-play {
+  display: flex; /* Use flexbox to layout the sentence and button */
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Add some space between the sentence and button */
+}
+
+.example-section .example-sentence {
+  margin: 0; /* Remove margin if any to align correctly with the button */
+  flex-grow: 1; /* Allow the sentence to fill the available space */
+}
+
+.audio-section .play-button {
+  margin: 0; /* Adjust margin as needed */
+  /* Rest of your styles */
+}
