@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 //middleware
-app.use(cors());
+app.use(cors({origin: "https://triolingo-front.onrender.com"}));
 app.use(express.json());
 
 //ROUTES//
